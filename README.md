@@ -7,9 +7,9 @@ Now you can have even better aniamation and feel by using BROptionsButton. BROpt
 
 Specifications: 
 ===============
-1- You can add BrOptionsButton at any index in your tabBar <br>
+1) You can add BrOptionsButton at any index in your tabBar <br>
 // screen shot
-2- You can have from 1 option button up to 7 for iPhone <br>
-3- choose your own custom images and colors <br>
+2) You can have from 1 option button up to 7 for iPhone <br>
+3) choose your own custom images and colors <br>
 
 
