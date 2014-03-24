@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A36A533718CDBEC9006ECD2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A533618CDBEC9006ECD2A /* Foundation.framework */; };
+		A36A533918CDBEC9006ECD2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A533818CDBEC9006ECD2A /* CoreGraphics.framework */; };
+		A36A533B18CDBEC9006ECD2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A533A18CDBEC9006ECD2A /* UIKit.framework */; };
+		A36A534118CDBEC9006ECD2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A36A533F18CDBEC9006ECD2A /* InfoPlist.strings */; };
+		A36A534318CDBEC9006ECD2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A534218CDBEC9006ECD2A /* main.m */; };
+		A36A534718CDBEC9006ECD2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A534618CDBEC9006ECD2A /* AppDelegate.m */; };
+		A36A534918CDBEC9006ECD2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36A534818CDBEC9006ECD2A /* Images.xcassets */; };
+		A36A535018CDBEC9006ECD2A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A534F18CDBEC9006ECD2A /* XCTest.framework */; };
+		A36A535118CDBEC9006ECD2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A533618CDBEC9006ECD2A /* Foundation.framework */; };
+		A36A535218CDBEC9006ECD2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A533A18CDBEC9006ECD2A /* UIKit.framework */; };
+		A36A535A18CDBEC9006ECD2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A36A535818CDBEC9006ECD2A /* InfoPlist.strings */; };
+		A36A535C18CDBEC9006ECD2A /* BROptionsButtonDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A535B18CDBEC9006ECD2A /* BROptionsButtonDemoTests.m */; };
+		A36A536618CDBF01006ECD2A /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36A536518CDBF01006ECD2A /* MainTabBarController.xib */; };
+		A36A536918CDBF54006ECD2A /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A536818CDBF54006ECD2A /* MainTabBarController.m */; };
+		A36A536F18CDBFD6006ECD2A /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A536D18CDBFD6006ECD2A /* FirstVC.m */; };
+		A36A537018CDBFD6006ECD2A /* FirstVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36A536E18CDBFD6006ECD2A /* FirstVC.xib */; };
+		A36A537618CDBFFD006ECD2A /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A537418CDBFFD006ECD2A /* SecondVC.m */; };
+		A36A537718CDBFFD006ECD2A /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36A537518CDBFFD006ECD2A /* SecondVC.xib */; };
+		A36A537B18CDC012006ECD2A /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A537918CDC012006ECD2A /* ThirdVC.m */; };
+		A36A537C18CDC012006ECD2A /* ThirdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36A537A18CDC012006ECD2A /* ThirdVC.xib */; };
+		A36A538118CDC106006ECD2A /* BROptionsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A538018CDC106006ECD2A /* BROptionsButton.m */; };
+		A36A538418CDC18A006ECD2A /* BROptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A36A538318CDC18A006ECD2A /* BROptionItem.m */; };
+		A36A538718CDC276006ECD2A /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = A36A538518CDC276006ECD2A /* Apple.png */; };
+		A36A538818CDC276006ECD2A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = A36A538618CDC276006ECD2A /* close.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A36A535318CDBEC9006ECD2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A36A532B18CDBEC9006ECD2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A36A533218CDBEC9006ECD2A;
+			remoteInfo = BROptionsButtonDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A36A533318CDBEC9006ECD2A /* BROptionsButtonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BROptionsButtonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36A533618CDBEC9006ECD2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A36A533818CDBEC9006ECD2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A36A533A18CDBEC9006ECD2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A36A533E18CDBEC9006ECD2A /* BROptionsButtonDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BROptionsButtonDemo-Info.plist"; sourceTree = "<group>"; };
+		A36A534018CDBEC9006ECD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A36A534218CDBEC9006ECD2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A36A534418CDBEC9006ECD2A /* BROptionsButtonDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BROptionsButtonDemo-Prefix.pch"; sourceTree = "<group>"; };
+		A36A534518CDBEC9006ECD2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A36A534618CDBEC9006ECD2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A36A534818CDBEC9006ECD2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A36A534E18CDBEC9006ECD2A /* BROptionsButtonDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BROptionsButtonDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36A534F18CDBEC9006ECD2A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A36A535718CDBEC9006ECD2A /* BROptionsButtonDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BROptionsButtonDemoTests-Info.plist"; sourceTree = "<group>"; };
+		A36A535918CDBEC9006ECD2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A36A535B18CDBEC9006ECD2A /* BROptionsButtonDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BROptionsButtonDemoTests.m; sourceTree = "<group>"; };
+		A36A536518CDBF01006ECD2A /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
+		A36A536718CDBF54006ECD2A /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		A36A536818CDBF54006ECD2A /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		A36A536C18CDBFD6006ECD2A /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstVC.h; path = "untitled folder/FirstVC.h"; sourceTree = "<group>"; };
+		A36A536D18CDBFD6006ECD2A /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstVC.m; path = "untitled folder/FirstVC.m"; sourceTree = "<group>"; };
+		A36A536E18CDBFD6006ECD2A /* FirstVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstVC.xib; path = "untitled folder/FirstVC.xib"; sourceTree = "<group>"; };
+		A36A537318CDBFFD006ECD2A /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondVC.h; path = "untitled folder/SecondVC.h"; sourceTree = "<group>"; };
+		A36A537418CDBFFD006ECD2A /* SecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondVC.m; path = "untitled folder/SecondVC.m"; sourceTree = "<group>"; };
+		A36A537518CDBFFD006ECD2A /* SecondVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SecondVC.xib; path = "untitled folder/SecondVC.xib"; sourceTree = "<group>"; };
+		A36A537818CDC012006ECD2A /* ThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdVC.h; path = "untitled folder/ThirdVC.h"; sourceTree = "<group>"; };
+		A36A537918CDC012006ECD2A /* ThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdVC.m; path = "untitled folder/ThirdVC.m"; sourceTree = "<group>"; };
+		A36A537A18CDC012006ECD2A /* ThirdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirdVC.xib; path = "untitled folder/ThirdVC.xib"; sourceTree = "<group>"; };
+		A36A537F18CDC106006ECD2A /* BROptionsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BROptionsButton.h; path = BROptionsButton/BROptionsButton.h; sourceTree = "<group>"; };
+		A36A538018CDC106006ECD2A /* BROptionsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BROptionsButton.m; path = BROptionsButton/BROptionsButton.m; sourceTree = "<group>"; };
+		A36A538218CDC18A006ECD2A /* BROptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BROptionItem.h; path = BROptionsButton/BROptionItem.h; sourceTree = "<group>"; };
+		A36A538318CDC18A006ECD2A /* BROptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BROptionItem.m; path = BROptionsButton/BROptionItem.m; sourceTree = "<group>"; };
+		A36A538518CDC276006ECD2A /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
+		A36A538618CDC276006ECD2A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A36A533018CDBEC9006ECD2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A533918CDBEC9006ECD2A /* CoreGraphics.framework in Frameworks */,
+				A36A533B18CDBEC9006ECD2A /* UIKit.framework in Frameworks */,
+				A36A533718CDBEC9006ECD2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36A534B18CDBEC9006ECD2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A535018CDBEC9006ECD2A /* XCTest.framework in Frameworks */,
+				A36A535218CDBEC9006ECD2A /* UIKit.framework in Frameworks */,
+				A36A535118CDBEC9006ECD2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A36A532A18CDBEC9006ECD2A = {
+			isa = PBXGroup;
+			children = (
+				A36A533C18CDBEC9006ECD2A /* BROptionsButtonDemo */,
+				A36A535518CDBEC9006ECD2A /* BROptionsButtonDemoTests */,
+				A36A533518CDBEC9006ECD2A /* Frameworks */,
+				A36A533418CDBEC9006ECD2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A36A533418CDBEC9006ECD2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A36A533318CDBEC9006ECD2A /* BROptionsButtonDemo.app */,
+				A36A534E18CDBEC9006ECD2A /* BROptionsButtonDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A36A533518CDBEC9006ECD2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A36A533618CDBEC9006ECD2A /* Foundation.framework */,
+				A36A533818CDBEC9006ECD2A /* CoreGraphics.framework */,
+				A36A533A18CDBEC9006ECD2A /* UIKit.framework */,
+				A36A534F18CDBEC9006ECD2A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A36A533C18CDBEC9006ECD2A /* BROptionsButtonDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A36A534518CDBEC9006ECD2A /* AppDelegate.h */,
+				A36A534618CDBEC9006ECD2A /* AppDelegate.m */,
+				A36A536A18CDBF77006ECD2A /* MainTabBar */,
+				A36A537E18CDC0C0006ECD2A /* BROptionsButton */,
+				A36A534818CDBEC9006ECD2A /* Images.xcassets */,
+				A36A538518CDC276006ECD2A /* Apple.png */,
+				A36A538618CDC276006ECD2A /* close.png */,
+				A36A533D18CDBEC9006ECD2A /* Supporting Files */,
+			);
+			path = BROptionsButtonDemo;
+			sourceTree = "<group>";
+		};
+		A36A533D18CDBEC9006ECD2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A36A533E18CDBEC9006ECD2A /* BROptionsButtonDemo-Info.plist */,
+				A36A533F18CDBEC9006ECD2A /* InfoPlist.strings */,
+				A36A534218CDBEC9006ECD2A /* main.m */,
+				A36A534418CDBEC9006ECD2A /* BROptionsButtonDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A36A535518CDBEC9006ECD2A /* BROptionsButtonDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A36A535B18CDBEC9006ECD2A /* BROptionsButtonDemoTests.m */,
+				A36A535618CDBEC9006ECD2A /* Supporting Files */,
+			);
+			path = BROptionsButtonDemoTests;
+			sourceTree = "<group>";
+		};
+		A36A535618CDBEC9006ECD2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A36A535718CDBEC9006ECD2A /* BROptionsButtonDemoTests-Info.plist */,
+				A36A535818CDBEC9006ECD2A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A36A536A18CDBF77006ECD2A /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A36A536518CDBF01006ECD2A /* MainTabBarController.xib */,
+				A36A536718CDBF54006ECD2A /* MainTabBarController.h */,
+				A36A536818CDBF54006ECD2A /* MainTabBarController.m */,
+				A36A536B18CDBFA8006ECD2A /* ViewControllers */,
+			);
+			name = MainTabBar;
+			sourceTree = "<group>";
+		};
+		A36A536B18CDBFA8006ECD2A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A36A537118CDBFDE006ECD2A /* FirstVC */,
+				A36A537218CDBFE6006ECD2A /* SecondVC */,
+				A36A537D18CDC014006ECD2A /* ThirdVC */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A36A537118CDBFDE006ECD2A /* FirstVC */ = {
+			isa = PBXGroup;
+			children = (
+				A36A536C18CDBFD6006ECD2A /* FirstVC.h */,
+				A36A536D18CDBFD6006ECD2A /* FirstVC.m */,
+				A36A536E18CDBFD6006ECD2A /* FirstVC.xib */,
+			);
+			name = FirstVC;
+			sourceTree = "<group>";
+		};
+		A36A537218CDBFE6006ECD2A /* SecondVC */ = {
+			isa = PBXGroup;
+			children = (
+				A36A537318CDBFFD006ECD2A /* SecondVC.h */,
+				A36A537418CDBFFD006ECD2A /* SecondVC.m */,
+				A36A537518CDBFFD006ECD2A /* SecondVC.xib */,
+			);
+			name = SecondVC;
+			sourceTree = "<group>";
+		};
+		A36A537D18CDC014006ECD2A /* ThirdVC */ = {
+			isa = PBXGroup;
+			children = (
+				A36A537818CDC012006ECD2A /* ThirdVC.h */,
+				A36A537918CDC012006ECD2A /* ThirdVC.m */,
+				A36A537A18CDC012006ECD2A /* ThirdVC.xib */,
+			);
+			name = ThirdVC;
+			sourceTree = "<group>";
+		};
+		A36A537E18CDC0C0006ECD2A /* BROptionsButton */ = {
+			isa = PBXGroup;
+			children = (
+				A36A537F18CDC106006ECD2A /* BROptionsButton.h */,
+				A36A538018CDC106006ECD2A /* BROptionsButton.m */,
+				A36A538218CDC18A006ECD2A /* BROptionItem.h */,
+				A36A538318CDC18A006ECD2A /* BROptionItem.m */,
+			);
+			name = BROptionsButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A36A533218CDBEC9006ECD2A /* BROptionsButtonDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A36A535F18CDBEC9006ECD2A /* Build configuration list for PBXNativeTarget "BROptionsButtonDemo" */;
+			buildPhases = (
+				A36A532F18CDBEC9006ECD2A /* Sources */,
+				A36A533018CDBEC9006ECD2A /* Frameworks */,
+				A36A533118CDBEC9006ECD2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BROptionsButtonDemo;
+			productName = BROptionsButtonDemo;
+			productReference = A36A533318CDBEC9006ECD2A /* BROptionsButtonDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A36A534D18CDBEC9006ECD2A /* BROptionsButtonDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A36A536218CDBEC9006ECD2A /* Build configuration list for PBXNativeTarget "BROptionsButtonDemoTests" */;
+			buildPhases = (
+				A36A534A18CDBEC9006ECD2A /* Sources */,
+				A36A534B18CDBEC9006ECD2A /* Frameworks */,
+				A36A534C18CDBEC9006ECD2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A36A535418CDBEC9006ECD2A /* PBXTargetDependency */,
+			);
+			name = BROptionsButtonDemoTests;
+			productName = BROptionsButtonDemoTests;
+			productReference = A36A534E18CDBEC9006ECD2A /* BROptionsButtonDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A36A532B18CDBEC9006ECD2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Basheer Malaa";
+				TargetAttributes = {
+					A36A534D18CDBEC9006ECD2A = {
+						TestTargetID = A36A533218CDBEC9006ECD2A;
+					};
+				};
+			};
+			buildConfigurationList = A36A532E18CDBEC9006ECD2A /* Build configuration list for PBXProject "BROptionsButtonDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A36A532A18CDBEC9006ECD2A;
+			productRefGroup = A36A533418CDBEC9006ECD2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A36A533218CDBEC9006ECD2A /* BROptionsButtonDemo */,
+				A36A534D18CDBEC9006ECD2A /* BROptionsButtonDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A36A533118CDBEC9006ECD2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A537718CDBFFD006ECD2A /* SecondVC.xib in Resources */,
+				A36A538718CDC276006ECD2A /* Apple.png in Resources */,
+				A36A538818CDC276006ECD2A /* close.png in Resources */,
+				A36A536618CDBF01006ECD2A /* MainTabBarController.xib in Resources */,
+				A36A537018CDBFD6006ECD2A /* FirstVC.xib in Resources */,
+				A36A534118CDBEC9006ECD2A /* InfoPlist.strings in Resources */,
+				A36A537C18CDC012006ECD2A /* ThirdVC.xib in Resources */,
+				A36A534918CDBEC9006ECD2A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36A534C18CDBEC9006ECD2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A535A18CDBEC9006ECD2A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A36A532F18CDBEC9006ECD2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A537B18CDC012006ECD2A /* ThirdVC.m in Sources */,
+				A36A534718CDBEC9006ECD2A /* AppDelegate.m in Sources */,
+				A36A538118CDC106006ECD2A /* BROptionsButton.m in Sources */,
+				A36A536F18CDBFD6006ECD2A /* FirstVC.m in Sources */,
+				A36A534318CDBEC9006ECD2A /* main.m in Sources */,
+				A36A538418CDC18A006ECD2A /* BROptionItem.m in Sources */,
+				A36A537618CDBFFD006ECD2A /* SecondVC.m in Sources */,
+				A36A536918CDBF54006ECD2A /* MainTabBarController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36A534A18CDBEC9006ECD2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36A535C18CDBEC9006ECD2A /* BROptionsButtonDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A36A535418CDBEC9006ECD2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A36A533218CDBEC9006ECD2A /* BROptionsButtonDemo */;
+			targetProxy = A36A535318CDBEC9006ECD2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A36A533F18CDBEC9006ECD2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A36A534018CDBEC9006ECD2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A36A535818CDBEC9006ECD2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A36A535918CDBEC9006ECD2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A36A535D18CDBEC9006ECD2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A36A535E18CDBEC9006ECD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A36A536018CDBEC9006ECD2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BROptionsButtonDemo/BROptionsButtonDemo-Prefix.pch";
+				INFOPLIST_FILE = "BROptionsButtonDemo/BROptionsButtonDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A36A536118CDBEC9006ECD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BROptionsButtonDemo/BROptionsButtonDemo-Prefix.pch";
+				INFOPLIST_FILE = "BROptionsButtonDemo/BROptionsButtonDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A36A536318CDBEC9006ECD2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BROptionsButtonDemo.app/BROptionsButtonDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BROptionsButtonDemo/BROptionsButtonDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BROptionsButtonDemoTests/BROptionsButtonDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A36A536418CDBEC9006ECD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BROptionsButtonDemo.app/BROptionsButtonDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BROptionsButtonDemo/BROptionsButtonDemo-Prefix.pch";
+				INFOPLIST_FILE = "BROptionsButtonDemoTests/BROptionsButtonDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A36A532E18CDBEC9006ECD2A /* Build configuration list for PBXProject "BROptionsButtonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36A535D18CDBEC9006ECD2A /* Debug */,
+				A36A535E18CDBEC9006ECD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A36A535F18CDBEC9006ECD2A /* Build configuration list for PBXNativeTarget "BROptionsButtonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36A536018CDBEC9006ECD2A /* Debug */,
+				A36A536118CDBEC9006ECD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A36A536218CDBEC9006ECD2A /* Build configuration list for PBXNativeTarget "BROptionsButtonDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36A536318CDBEC9006ECD2A /* Debug */,
+				A36A536418CDBEC9006ECD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A36A532B18CDBEC9006ECD2A /* Project object */;
+}
