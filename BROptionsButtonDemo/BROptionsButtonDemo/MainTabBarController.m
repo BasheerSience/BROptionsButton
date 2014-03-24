@@ -30,7 +30,7 @@
 
 - (NSInteger)brOptionsButtonNumberOfItems:(BROptionsButton *)brOptionsButton
 {
-    return 4;
+    return 7;
 }
 
 - (UIImage*)brOptionsButton:(BROptionsButton *)brOptionsButton imageForItemAtIndex:(NSInteger)index
