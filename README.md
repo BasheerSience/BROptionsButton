@@ -80,7 +80,7 @@ How to use it:
 
 Nex:
 =====
-Stay tuned, more cool stuff and updates comming soon, click Watch to get the latest update for this library
+Stay tuned, more cool stuff and updates comming soon, click Watch to get the latest updates for this library
 
 Lincense:
 ==========
