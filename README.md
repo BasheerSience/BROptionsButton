@@ -17,8 +17,8 @@ Specifications:
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot-numberOfOptions/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.49.43%20PM.png" alt="center" height="330" width="200">| 
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot-numberOfOptions/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.49.50%20PM.png" alt="right" height="330" width="200" >
 <br>
-3) choose your own custom images and colors <br>
-4) dynamically change the number of items, background color, titles, and the location of the button
+3) Choose your own custom images and colors <br>
+4) Dynamically change the number of items, background color, titles, and the location of the button
 
 What will you need:
 ==================
@@ -33,14 +33,20 @@ How to use it:
 #import "BROptionsButton.h"
 ```
 
-- initialize new button 
+- Initialize new button 
 ```Objective-C
 // the index 1 is the center for UITabBar with 3 buttons
 // the delegate must be setted  
  BROptionsButton *brOption = [[BROptionsButton alloc] initForTabBar:self.tabBar forItemIndex:1 delegate:self];
 ```
+- Customize the button. Set images for different states 
 
-- respond to the formal protocol messages 
+```Objective-C
+[brOption setImage:[UIImage imageNamed:@"Apple"] forBROptionsButtonState:BROptionsButtonStateNormal];
+[brOption setImage:[UIImage imageNamed:@"close"] forBROptionsButtonState:BROptionsButtonStateOpened];
+```
+
+- Respond to the formal protocol messages 
 
 ```Objective-C
 // number of items 
