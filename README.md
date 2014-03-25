@@ -8,11 +8,9 @@ Amazing options button for your UITabBar, with very beautiful dynamic animation.
 Specifications: 
 ===============
 1) You can add BrOptionsButton at any index in your tabBar <br>
-<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.47.47%20PM.png" alt="left" height="330" width="230" >
-
-<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%205.17.42%20PM.png" alt="center" height="330" width="240" > 
-
-<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.48.01%20PM.png" alt="right" height="330" width="240" > 
+<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.47.47%20PM.png" alt="left" height="330" width="210" > 
+<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%205.17.42%20PM.png" alt="center" height="330" width="210">  
+<img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot_anyLocation/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.48.01%20PM.png" alt="right" height="330" width="210" > 
 <br>
 2) You can have from 1 option button up to 7 for iPhone <br>
 3) choose your own custom images and colors <br>
