@@ -16,10 +16,11 @@ Specifications:
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot-numberOfOptions/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.49.30%20PM.png" alt="left" height="330" width="200" >| 
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot-numberOfOptions/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.49.43%20PM.png" alt="center" height="330" width="200">| 
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/screenShot-numberOfOptions/iOS%20Simulator%20Screen%20shot%20Mar%2024,%202014,%206.49.50%20PM.png" alt="right" height="330" width="200" >
+<br>
 3) choose your own custom images and colors <br>
 
 What will you need:
 ==================
-1) iOS 7 or later 
-2) instance of UItabBar (of course)
+1) iOS 7 or later  <br>
+2) instance of UItabBar (of course) <br>
 
