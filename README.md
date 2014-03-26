@@ -85,7 +85,7 @@ How to use it:
 }
 ```
 
-Nex:
+Next:
 =====
 Stay tuned, more cool stuff and updates comming soon, click Watch to get the latest updates for this library
 
