@@ -54,6 +54,7 @@
     
     if(self.tabBar.items.count > self.locationIndexInTabBar) {
         UITabBarItem *item = [self.tabBar.items objectAtIndex:self.locationIndexInTabBar];
+        [item setEnabled:NO];
         UIView *view = [item valueForKey:@"view"];
         
         CGPoint pointToSuperview = [self.tabBar.superview convertPoint:view.center fromView:self.tabBar];
