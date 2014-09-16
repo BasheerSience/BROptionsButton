@@ -8,17 +8,22 @@
 
 #import "BROptionItem.h"
 
+const CGFloat kBROptionsItemDefaultItemHeight = 40;
+
 @interface BROptionItem ()
 
 @property (nonatomic, strong) UIAttachmentBehavior *dragAttachement;
 @property (nonatomic, strong) UIDynamicAnimator *dynamicsAnimator;
 @property (nonatomic, strong) UICollisionBehavior *collisionBehavior;
+
 @end
+
 
 @implementation BROptionItem
 
-- (instancetype)initWithIndex:(NSInteger)index
-{
+#pragma mark - Inits/setups
+
+- (instancetype)initWithIndex:(NSInteger)index {
     self = [self init];
     if(self) {
         _index = index;
@@ -26,24 +31,18 @@
     return self;
 }
 
-- (id)init
-{
-    self = [super initWithFrame:CGRectMake(0.0, 0.0,
-                                           kDefaultButtonHeight,
-                                           kDefaultButtonHeight)];
+- (id)init {
+    self = [super initWithFrame:CGRectMake(0.0,
+                                           0.0,
+                                           kBROptionsItemDefaultItemHeight,
+                                           kBROptionsItemDefaultItemHeight)];
     if(self) {
-        [self setupButton];
+        [self LayoutTheButton];
     }
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage*)image
-{
-    return self;
-}
-
-- (void)setupButton
-{
+- (void)LayoutTheButton {
     self.layer.cornerRadius = self.frame.size.height/2;
     self.layer.anchorPoint = CGPointMake(1, 1);
     self.backgroundColor = [UIColor blueColor];
@@ -56,9 +55,7 @@
 
 
 // overriding super class methods
-
-- (void)setImage:(UIImage *)image forState:(UIControlState)state
-{
+- (void)setImage:(UIImage *)image forState:(UIControlState)state {
     [super setImage:image forState:state];
     self.backgroundColor = [UIColor clearColor];
 }
@@ -68,9 +65,8 @@
 
 #pragma mark - touch events
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:self.superview];
     location.x += (self.frame.size.width/2);
@@ -85,8 +81,7 @@
     [animator removeBehavior:self.attachment];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     // move the attachment
     UITouch *touch = [touches anyObject];
     CGPoint nextPoint = [touch locationInView:self];
@@ -99,8 +94,7 @@
     self.highlighted = NO;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     // remove the attachment
     UIDynamicAnimator *animator = self.dragAttachement.dynamicAnimator;
     
@@ -114,16 +108,10 @@
     self.highlighted = NO;
 }
 
-#pragma mark - Actions
+#pragma  mark - dealloc 
 
-- (void)setAttachment:(UIAttachmentBehavior *)attachment
-{
-    _attachment = attachment;
-}
-
-- (void)dealloc
-{
-    self.attachment = nil;
+- (void)dealloc {
+    _attachment = nil;
 }
 @end
 

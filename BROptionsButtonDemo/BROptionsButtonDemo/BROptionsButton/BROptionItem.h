@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#define kDefaultButtonHeight  40
+extern const CGFloat kBROptionsItemDefaultItemHeight;
 
 
 @interface BROptionItem : UIButton
-@property (nonatomic, readonly) NSInteger index;
 
-@property (nonatomic, strong) UIAttachmentBehavior *attachment;
+@property (nonatomic, readonly) NSInteger index;
+@property (nonatomic, strong)   UIAttachmentBehavior *attachment;
+
 - (instancetype)initWithIndex:(NSInteger)index;
+
 @end
