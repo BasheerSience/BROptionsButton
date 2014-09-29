@@ -10,29 +10,29 @@
 	<string>BROptionsButtonDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2215B8AE-4366-48DF-B594-7F22C3F5FCA2</key>
+		<key>131945C948521642679F2DED38472A38BFB1E26F</key>
 		<string>https://github.com/BasheerSience/BROptionsButton.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BROptionsButtonDemo/BROptionsButtonDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2215B8AE-4366-48DF-B594-7F22C3F5FCA2</key>
+		<key>131945C948521642679F2DED38472A38BFB1E26F</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/BasheerSience/BROptionsButton.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2215B8AE-4366-48DF-B594-7F22C3F5FCA2</string>
+	<string>131945C948521642679F2DED38472A38BFB1E26F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2215B8AE-4366-48DF-B594-7F22C3F5FCA2</string>
+			<string>131945C948521642679F2DED38472A38BFB1E26F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BROptionsButton</string>
 		</dict>

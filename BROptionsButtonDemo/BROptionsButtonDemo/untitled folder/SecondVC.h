@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTabBarController.h"
 
 @interface SecondVC : UIViewController
-
+@property (nonatomic, weak) id<CommonDelegate> commonDelegate;
 @end

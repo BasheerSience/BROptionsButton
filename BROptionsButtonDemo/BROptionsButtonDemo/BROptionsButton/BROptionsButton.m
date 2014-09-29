@@ -1,27 +1,19 @@
-//
-//  BROptionsButton.m
-//  BROptionsButtonDemo
-//
-//  Created by Basheer Malaa on 3/10/14.
-//  Copyright (c) 2014 Basheer Malaa. All rights reserved.
-//
-
 #import "BROptionsButton.h"
 
 
 @interface BROptionsButton ()
+
 @property (nonatomic, strong) UIDynamicAnimator *dynamicsAnimator2;
 @property (nonatomic, strong) UIDynamicAnimator *dynamicsAnimator;
 @property (nonatomic, strong) UIAttachmentBehavior *attachmentBehavior;
 @property (nonatomic, strong) UIGravityBehavior *gravityBehavior;
 @property (nonatomic, strong) UICollisionBehavior *collisionBehavior;
 @property (nonatomic, strong) UIDynamicItemBehavior *dynamicItem;
-
 @property (nonatomic, strong) UIImageView *openedStateImage;
 @property (nonatomic, strong) UIImageView *closedStateImage;
 @property (nonatomic, strong) NSMutableArray *items;
-
 @property (nonatomic, strong) UIView *blackView;
+
 @end
 
 @implementation BROptionsButton
@@ -34,13 +26,15 @@
         _delegate = delegate;
         _tabBar = tabBar;
         _locationIndexInTabBar = itemIndex;
-        
+        _damping = 0.5;
+        _frequecny = 4;
         _currentState = BROptionsButtonStateNormal;
         _items = [NSMutableArray new];
         
         [self installTheButton];
         self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
         UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+        self.translatesAutoresizingMaskIntoConstraints = YES;
     }
     return self;
 }
@@ -53,16 +47,16 @@
     NSAssert((self.tabBar.items.count -1 >= self.locationIndexInTabBar), reason);
     
     if(self.tabBar.items.count > self.locationIndexInTabBar) {
-        UITabBarItem *item = [self.tabBar.items objectAtIndex:self.locationIndexInTabBar];
-        [item setEnabled:NO];
-        UIView *view = [item valueForKey:@"view"];
         
-        CGPoint pointToSuperview = [self.tabBar.superview convertPoint:view.center fromView:self.tabBar];
-        
-        CGRect myRect = CGRectMake(pointToSuperview.x, pointToSuperview.y, 60, 60);
+        [[self.tabBar.items objectAtIndex:self.locationIndexInTabBar]setEnabled:NO];
+        CGPoint pointToSuperview = [self buttonLocaitonForIndex:self.locationIndexInTabBar];
+        CGRect myRect = CGRectMake(pointToSuperview.x,
+                                   pointToSuperview.y,
+                                   60, 60);
         self.frame = myRect;
+        self.center = pointToSuperview;
+       // self.layer.anchorPoint = CGPointMake(1, 1);
         self.backgroundColor = [UIColor blackColor];
-        self.layer.anchorPoint = CGPointMake(1, 1);
         self.layer.cornerRadius = 6;
         self.clipsToBounds = YES;
         [self.tabBar.superview addSubview:self];
@@ -79,10 +73,25 @@
         //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
         //[self.dynamicsAnimator addBehavior:self.collisionBehavior];
         //[self.dynamicsAnimator addBehavior:self.gravityBehavior];
-        [self.tabBar addObserver:self forKeyPath:@"selectedItem" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+        [self.tabBar addObserver:self
+                      forKeyPath:@"selectedItem"
+                         options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                         context:nil];
         
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orientationChanged) name:UIDeviceOrientationDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self
+                                                selector:@selector(orientationChanged)
+                                                    name:UIDeviceOrientationDidChangeNotification
+                                                  object:nil];
     }
+}
+
+- (CGPoint)buttonLocaitonForIndex:(NSUInteger)index {
+    UITabBarItem *item = [self.tabBar.items objectAtIndex:index];
+    UIView *view = [item valueForKey:@"view"];
+    CGPoint pointToSuperview = [self.tabBar.superview
+                                convertPoint:view.center
+                                fromView:self.tabBar];
+    return pointToSuperview;
 }
 
 #pragma  mark - KVO
@@ -131,11 +140,35 @@
     
 }
 
+- (void)setLocationIndexInTabBar:(NSUInteger)newIndex animated:(BOOL)animated {
+    [[self.tabBar.items objectAtIndex:_locationIndexInTabBar]setEnabled:YES];
+    [[self.tabBar.items objectAtIndex:newIndex]setEnabled:NO];
+    
+    _locationIndexInTabBar = newIndex;
+    CGPoint location = [self buttonLocaitonForIndex:newIndex];
+    CGRect frame = self.frame;
+    frame.origin = location;
+    if(self.currentState == BROptionsButtonStateOpened) {
+        [self buttonPressed];
+    }
+    if(animated) {
+        [UIView animateWithDuration:0.1 animations:^{
+            //[self.superview layoutIfNeeded];
+            //[self.superview setNeedsDisplay];
+            self.center = location;
+        } completion:nil];
+    } else {
+        self.center = location;
+    }
+}
+
 #pragma mark - Action
 
 - (void)buttonPressed {
+    
     if(self.currentState == BROptionsButtonStateNormal ||
        self.currentState == BROptionsButtonStateClosed) {
+        
         _currentState = BROptionsButtonStateOpened;
         [self changeTheButtonStateAnimatedToOpen:@(YES)];
         [self performSelector:@selector(showOptions)
@@ -191,6 +224,7 @@
     UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleWidth |
     UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin |
     UIViewAutoresizingFlexibleBottomMargin;
+    [self.blackView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     self.blackView.backgroundColor = [UIColor blackColor];
     self.blackView.alpha = 0.0;
@@ -211,8 +245,10 @@
     
     self.enabled = NO;
     [UIView animateWithDuration:0.3 animations:^{
+        
         self.blackView.alpha = 0.0;
     } completion:^(BOOL finished) {
+        
         if(finished) {
             [self.blackView removeFromSuperview];
             self.blackView = nil;
@@ -225,17 +261,6 @@
     [self buttonPressed];
 }
 
-- (CGSize)screenSize {
-    
-    CGSize size = [UIApplication sharedApplication].keyWindow.bounds.size;
-    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        CGFloat height = size.height;
-        size.height = size.width;
-        size.width = height;
-    }
-    return size;
-}
-
 - (void)showOptions {
     
     NSInteger numberOfItems = [self.delegate brOptionsButtonNumberOfItems:self];
@@ -243,29 +268,31 @@
     
     CGFloat angle = 0.0;
     CGFloat radius = 20 * numberOfItems;
-    angle = 180.0 / numberOfItems;
+    angle = (180.0 / numberOfItems);
     // convert to radians
+
     angle = angle / 180.0f * M_PI;
     
     for(int i = 0; i<numberOfItems; i++) {
         CGFloat buttonX = radius * cosf((angle * i) + angle/2);
         CGFloat buttonY = radius * sinf((angle * i) + angle/2);
 
-        CGSize screenSize = [self screenSize];
-        
-        CGPoint mypoint = [self.tabBar.superview convertPoint:self.center fromView:self.superview];
-        CGPoint buttonPoint = CGPointMake( mypoint.x + buttonX - (kBROptionsItemDefaultItemHeight/4),
-                                          (screenSize.height - self.frame.size.height) -  buttonY);
-        
         BROptionItem *brOptionItem = [self createButtonItemAtIndex:i];
-        brOptionItem.center = mypoint;
+        CGPoint mypoint = [self.tabBar.superview convertPoint:self.center fromView:self.superview];
+        CGPoint buttonPoint = CGPointMake(mypoint.x + buttonX, 
+                                          self.frame.origin.y -  buttonY);
         
-        UIAttachmentBehavior *attachment = [[UIAttachmentBehavior alloc] initWithItem:brOptionItem attachedToAnchor:buttonPoint];
-        attachment.damping = 0.5;
-        attachment.frequency = 4;
+        brOptionItem.layer.anchorPoint = self.layer.anchorPoint;
+        brOptionItem.center = mypoint;
+    
+        UIAttachmentBehavior *attachment = [[UIAttachmentBehavior alloc] initWithItem:brOptionItem
+                                                                     attachedToAnchor:buttonPoint];
+        attachment.damping = self.damping;
+        attachment.frequency = self.frequecny;
         attachment.length = 1;
+        
         // set the attachment for dragging behavior
-        brOptionItem.attachment = attachment;
+        brOptionItem.attachment = self.attachmentBehavior;
         [self.dynamicItem addItem:brOptionItem];
         
         if([self.delegate respondsToSelector:@selector(brOptionsButton:willDisplayButtonItem:)]) {
@@ -278,23 +305,28 @@
     }
 }
 
+/*! Just make new button, set the index 
+ * and customise it
+ */
 - (BROptionItem*)createButtonItemAtIndex:(NSInteger)index {
     
     BROptionItem *brOptionItem = [[BROptionItem alloc] initWithIndex:index];
-    [brOptionItem addTarget:self action:@selector(buttonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [brOptionItem addTarget:self
+                     action:@selector(buttonItemPressed:)
+           forControlEvents:UIControlEventTouchUpInside];
     brOptionItem.autoresizingMask = UIViewAutoresizingNone;
     
     if([self.delegate respondsToSelector:@selector(brOptionsButton:imageForItemAtIndex:)]) {
-        UIImage *img = [self.delegate brOptionsButton:self imageForItemAtIndex:index];
-        if(img) {
-            [brOptionItem setImage:img forState:UIControlStateNormal];
+        UIImage *image = [self.delegate brOptionsButton:self imageForItemAtIndex:index];
+        if(image) {
+            [brOptionItem setImage:image forState:UIControlStateNormal];
         }
     }
     
     if([self.delegate respondsToSelector:@selector(brOptionsButton:titleForItemAtIndex:)]) {
-        NSString *str = [self.delegate brOptionsButton:self titleForItemAtIndex:index];
-        if(str) {
-            [brOptionItem setTitle:str forState:UIControlStateNormal];
+        NSString *buttonTitle = [self.delegate brOptionsButton:self titleForItemAtIndex:index];
+        if(buttonTitle.length) {
+            [brOptionItem setTitle:buttonTitle forState:UIControlStateNormal];
         }
     }
     return brOptionItem;
@@ -303,15 +335,19 @@
 - (void)hideButtons {
     
     [self.dynamicsAnimator removeAllBehaviors];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
+        
         __block int count = 0;
         [UIView animateWithDuration:0.2 animations:^{
+            
             for(int i = 0; i<self.items.count; i++) {
                 UIView *item = [self.items objectAtIndex:i];
                 item.center = [self.tabBar.superview convertPoint:self.center fromView:self.superview];
                 count ++;
             }
         } completion:^(BOOL finished) {
+            
             if(finished && count >= self.items.count) {
                 dispatch_barrier_async(dispatch_get_main_queue(), ^{
                     [self removeItems];
@@ -322,8 +358,8 @@
 }
 
 - (void)removeItems {
-    for(UIView *v in self.items) {
-        [v removeFromSuperview];
+    for(UIView *view in self.items) {
+        [view removeFromSuperview];
     }
     [self.items removeAllObjects];
 }
@@ -340,6 +376,7 @@
     [self.delegate brOptionsButton:self didSelectItem:button];
     
     [UIView animateWithDuration:0.3 animations:^{
+        [self layoutIfNeeded];
         button.transform = CGAffineTransformMakeScale(5, 5);
         button.alpha  = 0.0;
         button.center = CGPointMake(button.superview.frame.size.width/2 + button.frame.size.width/2,

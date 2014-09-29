@@ -1,38 +1,28 @@
-//
-//  SecondVC.m
-//  BROptionsButtonDemo
-//
-//  Created by Basheer Malaa on 3/10/14.
-//  Copyright (c) 2014 Basheer Malaa. All rights reserved.
-//
-
 #import "SecondVC.h"
 
-@interface SecondVC ()
-
+@interface SecondVC () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *locationTextField;
 @end
 
 @implementation SecondVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.locationTextField.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)changeLocationPressed:(id)sender {
+    [self.locationTextField resignFirstResponder];
+    NSUInteger index = [self.locationTextField.text integerValue];
+    
+    [self.commonDelegate changeBROptionsButtonLocaitonTo:index animated:YES];
+}
+
+#pragma mark - UItextField 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.locationTextField resignFirstResponder];
+    return YES;
 }
 
 @end
