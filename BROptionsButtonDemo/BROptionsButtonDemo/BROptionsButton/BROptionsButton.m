@@ -292,7 +292,7 @@
         attachment.length = 1;
         
         // set the attachment for dragging behavior
-        brOptionItem.attachment = self.attachmentBehavior;
+        brOptionItem.attachment = attachment;
         [self.dynamicItem addItem:brOptionItem];
         
         if([self.delegate respondsToSelector:@selector(brOptionsButton:willDisplayButtonItem:)]) {

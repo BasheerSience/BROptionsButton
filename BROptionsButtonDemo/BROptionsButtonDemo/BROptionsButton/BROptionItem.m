@@ -44,7 +44,6 @@ const CGFloat kBROptionsItemDefaultItemHeight = 40;
 
 - (void)LayoutTheButton {
     self.layer.cornerRadius = self.frame.size.height/2;
-    self.layer.anchorPoint = CGPointMake(1, 1);
     self.backgroundColor = [UIColor blueColor];
     
     self.layer.shadowColor = [UIColor blackColor].CGColor;
