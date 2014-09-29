@@ -5,6 +5,14 @@ Amazing options button for your UITabBar, with very beautiful dynamic animation.
 - You saw Yelp® app and impressed by the central button animtaion ? <br>
 - Now you can have even better aniamation and feel by using BROptionsButton. BROptionsButton uses the power of UIDynamics to make animation very realastic and beautiful. <br>
 
+Version 1.2
+==============
+1) iOS 8 support
+2) Less dependency on screen sizes, so now it works with all devices 
+3) change damping and frequency of the animation on the go 
+4) change the location of the button dynamically with/without animation 
+
+
 <img src="https://raw.githubusercontent.com/BasheerSience/BROptionsButton/master/videoDemo_gif.gif" alt="left" height="330" width="200" align="center">
 Specifications: 
 ===============
