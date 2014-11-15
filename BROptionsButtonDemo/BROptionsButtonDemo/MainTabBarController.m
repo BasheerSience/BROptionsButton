@@ -25,7 +25,7 @@
 #pragma mark - BROptionsButtonState
 
 - (NSInteger)brOptionsButtonNumberOfItems:(BROptionsButton *)brOptionsButton {
-    return 7;
+    return 6;
 }
 
 - (UIImage*)brOptionsButton:(BROptionsButton *)brOptionsButton imageForItemAtIndex:(NSInteger)index {
