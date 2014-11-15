@@ -28,7 +28,7 @@
         _locationIndexInTabBar = itemIndex;
         _damping = 0.5;
         _frequecny = 4;
-        _currentState = BROptionsButtonStateNormal;
+        _currentState = BROptionsButtonStateClosed;
         _items = [NSMutableArray new];
         
         [self installTheButton];
@@ -48,19 +48,26 @@
     
     if(self.tabBar.items.count > self.locationIndexInTabBar) {
         
-        [[self.tabBar.items objectAtIndex:self.locationIndexInTabBar]setEnabled:NO];
-        CGPoint pointToSuperview = [self buttonLocaitonForIndex:self.locationIndexInTabBar];
-        CGRect myRect = CGRectMake(pointToSuperview.x,
-                                   pointToSuperview.y,
+        UITabBarItem *item = [self.tabBar.items objectAtIndex:self.locationIndexInTabBar];
+        item.enabled = NO;
+        UIView *view = [item valueForKey:@"view"];
+       // NSLog(@"%@", NSStringFromCGRect(view.frame));
+    
+        CGRect myRect = CGRectMake(0.0,
+                                   0.0,
                                    60, 60);
         self.frame = myRect;
-        self.center = pointToSuperview;
-       // self.layer.anchorPoint = CGPointMake(1, 1);
+        self.center = view.center;
+        
         self.backgroundColor = [UIColor blackColor];
         self.layer.cornerRadius = 6;
         self.clipsToBounds = YES;
-        [self.tabBar.superview addSubview:self];
-        [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        [view.superview addSubview:self];
+        //NSLog(@"%@", NSStringFromCGRect(self.frame));
+        [self addTarget:self
+                 action:@selector(buttonPressed)
+       forControlEvents:UIControlEventTouchUpInside];
         
         // Dynamic stuff
         //self.gravityBehavior = [[UIGravityBehavior alloc] init];
@@ -77,7 +84,9 @@
                       forKeyPath:@"selectedItem"
                          options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
                          context:nil];
-        
+        [self.tabBar addObserver:self forKeyPath:@"frame"
+                         options:0
+                                            context:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self
                                                 selector:@selector(orientationChanged)
                                                     name:UIDeviceOrientationDidChangeNotification
@@ -88,9 +97,8 @@
 - (CGPoint)buttonLocaitonForIndex:(NSUInteger)index {
     UITabBarItem *item = [self.tabBar.items objectAtIndex:index];
     UIView *view = [item valueForKey:@"view"];
-    CGPoint pointToSuperview = [self.tabBar.superview
-                                convertPoint:view.center
-                                fromView:self.tabBar];
+    CGPoint pointToSuperview = view.center;//[self.tabBar.superview convertPoint:view.center
+                                 //                         fromView:self.tabBar];
     return pointToSuperview;
 }
 
@@ -105,6 +113,7 @@
         if(self.currentState == BROptionsButtonStateOpened) {
             [self buttonPressed];
         }
+    } else if([keyPath isEqualToString:@"frame"]) {
     }
 }
 
@@ -153,10 +162,12 @@
     }
     if(animated) {
         [UIView animateWithDuration:0.1 animations:^{
-            //[self.superview layoutIfNeeded];
-            //[self.superview setNeedsDisplay];
+            [self.superview layoutIfNeeded];
+            [self.superview setNeedsDisplay];
             self.center = location;
-        } completion:nil];
+        } completion:^(BOOL finished) {
+            [self.tabBar.superview setNeedsDisplay];
+        }];
     } else {
         self.center = location;
     }
@@ -280,7 +291,7 @@
         BROptionItem *brOptionItem = [self createButtonItemAtIndex:i];
         CGPoint mypoint = [self.tabBar.superview convertPoint:self.center fromView:self.superview];
         CGPoint buttonPoint = CGPointMake(mypoint.x + buttonX, 
-                                          self.frame.origin.y -  buttonY);
+                                          mypoint.y -  buttonY - self.frame.size.height);
         
         brOptionItem.layer.anchorPoint = self.layer.anchorPoint;
         brOptionItem.center = mypoint;
