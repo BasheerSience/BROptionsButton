@@ -14,7 +14,7 @@
 		<string>https://github.com/BasheerSience/BROptionsButton.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BROptionsButtonDemo/BROptionsButtonDemo.xcodeproj/project.xcworkspace</string>
+	<string>BROptionsButtonDemo/BROptionsButtonDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>131945C948521642679F2DED38472A38BFB1E26F</key>

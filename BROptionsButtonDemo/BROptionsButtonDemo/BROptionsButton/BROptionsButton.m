@@ -32,9 +32,7 @@
         _items = [NSMutableArray new];
         
         [self installTheButton];
-        self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
-        UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-        self.translatesAutoresizingMaskIntoConstraints = YES;
+        
     }
     return self;
 }
@@ -55,30 +53,26 @@
                                    60, 60);
         self.frame = myRect;
         self.center = pointToSuperview;
-       // self.layer.anchorPoint = CGPointMake(1, 1);
         self.backgroundColor = [UIColor blackColor];
         self.layer.cornerRadius = 6;
         self.clipsToBounds = YES;
+        
         [self.tabBar.superview addSubview:self];
+        
+        
         [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
         
         // Dynamic stuff
-        //self.gravityBehavior = [[UIGravityBehavior alloc] init];
-        //self.gravityBehavior.gravityDirection = CGVectorMake(0.0, -20);
         self.dynamicsAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.tabBar.superview];
         self.dynamicItem = [[UIDynamicItemBehavior alloc] init];
         self.dynamicItem.allowsRotation = NO;
         
-        //self.collisionBehavior = [[UICollisionBehavior alloc] init];
-        //self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-        //[self.dynamicsAnimator addBehavior:self.collisionBehavior];
-        //[self.dynamicsAnimator addBehavior:self.gravityBehavior];
         [self.tabBar addObserver:self
                       forKeyPath:@"selectedItem"
                          options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
                          context:nil];
         
-        [[NSNotificationCenter defaultCenter]addObserver:self
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                                 selector:@selector(orientationChanged)
                                                     name:UIDeviceOrientationDidChangeNotification
                                                   object:nil];
@@ -88,10 +82,17 @@
 - (CGPoint)buttonLocaitonForIndex:(NSUInteger)index {
     UITabBarItem *item = [self.tabBar.items objectAtIndex:index];
     UIView *view = [item valueForKey:@"view"];
-    CGPoint pointToSuperview = [self.tabBar.superview
+    CGPoint pointToSuperview = [self.tabBar
                                 convertPoint:view.center
                                 fromView:self.tabBar];
+    pointToSuperview.y = self.tabBar.frame.origin.y + (self.tabBar.frame.size.height/2);
     return pointToSuperview;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.translatesAutoresizingMaskIntoConstraints = YES;
+    self.center = [self buttonLocaitonForIndex:self.locationIndexInTabBar];
 }
 
 #pragma  mark - KVO
