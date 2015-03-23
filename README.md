@@ -8,7 +8,7 @@ Amazing options button for your UITabBar, with very beautiful dynamic animation.
 What's new in Version 1.3
 =========================
 1) iOS 8 support <br>
-2) iPhone 6 and 6+ support
+2) iPhone 6 and 6+ support <br>
 3) Less dependency on screen sizes, so now it works with all devices <br>
 4) change damping and frequency of the animation on the go  <br>
 5) change the location of the button dynamically with/without animation <br>
