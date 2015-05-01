@@ -1,5 +1,5 @@
 /*!
- * BROptionsButton - a great tabBar cusomizer with amazing dynamic animations
+ * BROptionsButton - a great button for your tabBar customized with amazing dynamic animations
  * Current verstion is: 1.2
  * Whats new: 
  1) iOS 8 support 
@@ -24,7 +24,7 @@ typedef enum {
 @interface BROptionsButton : UIButton
 
 /*!
- * TabBar currently installed on
+ * the TabBar currently installed on
  */
 @property (nonatomic, weak, readonly) UITabBar *tabBar;
 
@@ -35,14 +35,20 @@ typedef enum {
  */
 @property (nonatomic, assign, readonly) NSUInteger locationIndexInTabBar;
 @property (nonatomic, weak)   id<BROptionButtonDelegate> delegate;
-@property (nonatomic, assign, readonly) BROptionsButtonState currentState;
+@property (nonatomic, readonly) BROptionsButtonState currentState;
+
+/*!
+ * @Desicription
+ * - Move the button to a different location.
+ */
+- (void)setLocationIndexInTabBar:(NSUInteger)newIndex animated:(BOOL)animated;
 
 /*!
  * customize the animation dynamic behaviour.
  * Dont change it if you dont know what the heck is this
  */
-@property (assign) CGFloat damping;
-@property (assign) CGFloat frequecny;
+@property (nonatomic, assign) CGFloat damping;
+@property (nonatomic, assign) CGFloat frequecny;
 
 
 /*!
@@ -58,23 +64,27 @@ typedef enum {
  * and for the close state (Apple logo in the demo)
  */
 - (void)setImage:(UIImage *)image forBROptionsButtonState:(BROptionsButtonState)state;
-
-/*!
- * @Desicription Move the button to different location.
- * @ Do not set a bad parameter the method will assert
- */
-- (void)setLocationIndexInTabBar:(NSUInteger)newIndex animated:(BOOL)animated;
 @end
 
 
-//------------------------------------------- Formal Protocol
+//------------------------------------------- Protocol
 @protocol BROptionButtonDelegate <NSObject>
-- (void)brOptionsButton:(BROptionsButton*)brOptionsButton didSelectItem:(BROptionItem*)item;
+
+- (void)brOptionsButton:(BROptionsButton*)brOptionsButton
+          didSelectItem:(BROptionItem*)item;
 - (NSInteger)brOptionsButtonNumberOfItems:(BROptionsButton*)brOptionsButton;
+
 /*! informal protocol */
 @optional
-- (void)brOptionsButton:(BROptionsButton*)optionsButton willDisplayButtonItem:(BROptionItem*)button;
-- (NSString*)brOptionsButton:(BROptionsButton*)brOptionsButton titleForItemAtIndex:(NSInteger)index;
-- (UIImage*)brOptionsButton:(BROptionsButton*)brOptionsButton imageForItemAtIndex:(NSInteger)index;
+/*! just like UITableViewDelegate cusomize the button before displaying 
+ */
+- (void)brOptionsButton:(BROptionsButton*)optionsButton
+  willDisplayButtonItem:(BROptionItem*)button;
+
+- (NSString*)brOptionsButton:(BROptionsButton*)brOptionsButton
+         titleForItemAtIndex:(NSInteger)index;
+
+- (UIImage*)brOptionsButton:(BROptionsButton*)brOptionsButton
+        imageForItemAtIndex:(NSInteger)index;
 @end
 

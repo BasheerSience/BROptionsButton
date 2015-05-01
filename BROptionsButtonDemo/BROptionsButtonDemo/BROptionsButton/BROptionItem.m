@@ -11,11 +11,6 @@
 const CGFloat kBROptionsItemDefaultItemHeight = 40;
 
 @interface BROptionItem ()
-
-@property (nonatomic, strong) UIAttachmentBehavior *dragAttachement;
-@property (nonatomic, strong) UIDynamicAnimator *dynamicsAnimator;
-@property (nonatomic, strong) UICollisionBehavior *collisionBehavior;
-
 @end
 
 
@@ -59,58 +54,46 @@ const CGFloat kBROptionsItemDefaultItemHeight = 40;
     self.backgroundColor = [UIColor clearColor];
 }
 
-//TODO: override setCenter or setFrame
-
-
 #pragma mark - touch events
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:self.superview];
-    location.x += (self.frame.size.width/2);
-    location.y += (self.frame.size.height/2);
-    self.dragAttachement  = [[UIAttachmentBehavior alloc] initWithItem:self attachedToAnchor:location];
     self.highlighted = YES;
-    
-    UIDynamicAnimator *animator = self.attachment.dynamicAnimator;
-    // add attachment to move
-    [animator addBehavior:self.dragAttachement];
-    // remove the old behavior
-    [animator removeBehavior:self.attachment];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    // move the attachment
-    UITouch *touch = [touches anyObject];
-    CGPoint nextPoint = [touch locationInView:self];
-    nextPoint.x += (self.frame.size.width/2);
-    nextPoint.y += (self.frame.size.height/2);
-    
-    nextPoint = [self.superview convertPoint:nextPoint fromView:self];
-    self.dragAttachement.anchorPoint = nextPoint;
     
     self.highlighted = NO;
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:self];
+    CGPoint prevLocation = [touch previousLocationInView:self];
+    CGPoint deltaPoint = CGPointMake(location.x - prevLocation.x, location.y - prevLocation.y);
+    self.center = CGPointMake(self.center.x + deltaPoint.x, self.center.y + deltaPoint.y);
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    // remove the attachment
-    UIDynamicAnimator *animator = self.dragAttachement.dynamicAnimator;
     
-    [animator removeBehavior:self.dragAttachement];
-    [animator addBehavior:self.attachment];
-    // add the old attahment
+    [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        self.center = self.defaultLocation;
+    } completion:nil];
     
     if(self.highlighted) {
         [self sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
-    self.highlighted = NO;
+    
+}
+
+- (double)CGPointGetDistance:(CGPoint)p1 toPoint:(CGPoint)p2 {
+    double dx = (p2.x - p1.x);
+    double dy = (p2.y - p1.y);
+    double dist = sqrt((dx * dx) + (dy * dy));
+    return dist;
 }
 
 #pragma  mark - dealloc 
 
 - (void)dealloc {
-    _attachment = nil;
+    
+    //NSLog(@"dealloc index: %ld", self.index);
 }
 @end
 
