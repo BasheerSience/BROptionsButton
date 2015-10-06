@@ -301,7 +301,11 @@
         brOptionItem.layer.anchorPoint = self.layer.anchorPoint;
         brOptionItem.center = mypoint;
         brOptionItem.defaultLocation = buttonPoint;
-    
+        
+        if ([self.delegate respondsToSelector:@selector(brOptionsButton:willDisplayButtonItem:)]) {
+            [self.delegate brOptionsButton:self willDisplayButtonItem:brOptionItem];
+        }
+        
         [self.tabBar.superview insertSubview:brOptionItem aboveSubview:self.blackView];
         [UIView animateWithDuration:0.4 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
             
