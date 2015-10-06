@@ -87,6 +87,7 @@
 }
 
 - (void)addObservers {
+    
     [self.tabBar addObserver:self
                   forKeyPath:@"selectedItem"
                      options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
@@ -394,5 +395,10 @@
     UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin |
     UIViewAutoresizingFlexibleBottomMargin;
     return mask;
+}
+
+- (void)dealloc {
+    [self.tabBar removeObserver:self forKeyPath:@"selectedItem"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
